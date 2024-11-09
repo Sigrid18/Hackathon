@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Psswrdcr4ckr</title>
+    <link href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Psswrdcr4ckr</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <button onclick="window.location.href='page1.html';"><li><a href="#" class="hover:underline">Testează complexitatea parolei</a></li></button>
+                    <button onclick="window.location.href='page2.html';"><li><a href="#" class="hover:underline">Crează o parolă</a></li></button>
+                    <button  onclick="window.location.href='page3.html';"><li><a href="#" class="hover:underline">Decodează cu AI</a></li></button>
+                    <button onclick="window.location.href='page4.html';"><li><a href="#" class="hover:underline">A fost parola ta într-un leak?</a></li></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1>Check Input</h1>
+    <input type="text" id="inputField" placeholder="Enter a value">
+    <button id="checkButton">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkInput() {
+            const inputValue = document.getElementById('inputField').value.trim();
+            fetch('rockyou.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    const lines = data.split('\n').map(line => line.trim());
+                    const exists = lines.includes(inputValue);
+                    document.getElementById('result').innerText = exists ? 'Found!' : 'Not found.';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('result').innerText = 'Error reading the file.';
+                });
+        }
+
+        document.getElementById('checkButton').addEventListener('click', checkInput);
+    </script>
+
+</body>
+
+
+</html>

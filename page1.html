@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <title>Psswrdcr4ckr</title>
+    <link href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Psswrdcr4ckr</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <button onclick="window.location.href='page1.html';"><li><a href="#" class="hover:underline">Testează complexitatea parolei</a></li></button>
+                    <button onclick="window.location.href='page2.html';"><li><a href="#" class="hover:underline">Crează o parolă</a></li></button>
+                    <button  onclick="window.location.href='page3.html';">Decodează cu AI</a></li></button>
+                    <button onclick="window.location.href='page4.html';"><li><a href="#" class="hover:underline">A fost parola ta într-un leak?</a></li></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-10 p-4">
+        <section class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Testează complexitatea parolei tale</h2>
+            <form id="passwordForm" class="space-y-4">
+                <div>
+                    <label for="password" class="block text-gray-700">Introdu parola:</label>
+                    <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Parolă">
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Verifică</button>
+            </form>
+            <div id="result" class="mt-4"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Password Checker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const result = document.getElementById('result');
+            let strength = 'Weak';
+
+            if (password.length >= 8) {
+                strength = 'Moderate';
+            }
+            if (password.length >= 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
+                strength = 'Strong';
+            }
+
+            result.textContent = `Complexitatea: ${strength}`;
+            result.className = `mt-4 p-2 rounded ${strength === 'Weak' ? 'bg-red-500' : strength === 'Moderate' ? 'bg-yellow-500' : 'bg-green-500'} text-white`;
+        });
+    </script>
+</body>
+</html>
+
+
+<!--https://app.textcortex.com/user/dashboard/chat?kbId=kb_01jc7yp39nf60aqxmes6qrc4hw-->
