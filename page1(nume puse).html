@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <title>Psswrdcr4ckr</title>
+    <link href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Psswrdcr4ckr</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <button onclick="window.location.href='page1.html';"><li><a href="#" class="hover:underline">Testează complexitatea parolei</a></li></button>
+                    <button onclick="window.location.href='page2.html';"><li><a href="#" class="hover:underline">Crează o parolă</a></li></button>
+                    <button onclick="window.location.href='page3.html';">Decodează cu AI</a></li></button>
+                    <button onclick="window.location.href='page4.html';"><li><a href="#" class="hover:underline">A fost parola ta într-un leak?</a></li></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-10 p-4">
+        <section class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Testează complexitatea parolei tale</h2>
+            <form id="passwordForm" class="space-y-4">
+                <div>
+                    <label for="password" class="block text-gray-700">Introdu parola:</label>
+                    <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Parolă">
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Verifică</button>
+            </form>
+            <div id="result" class="mt-4"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Password Checker. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value.toLowerCase();
+            const result = document.getElementById('result');
+
+            // List of names to check for
+            const wordsToCheck = [
+                "adelina", "adina", "adela", "alexandra", "ana", "anca", "anastasia", "andreea", 
+                "bianca", "carina", "camelia", "clara", "carmen", "claudia", "corina", "carla", 
+                "diana", "delia", "denisa", "doina", "daria", "elena", "elisabeta", "emilia", 
+                "florentina", "gabriela", "georgiana", "geanina", "gloria", "ileana", "ilina", 
+                "laura", "larisa", "lidia", "lucia", "luminița", "maria", "mara", "melania", 
+                "mirabela", "mirela", "monica", "narcisa", "nicoleta", "oana", "olivia", 
+                "otilia", "sabina", "sofia", "sonia", "teodora", "tania", "valentina", 
+                "victoria", "viorela", "zoe",
+                "adam", "adelin", "adrian", "alex", "alexandru", "alexie", "alin", "amos", 
+                "andreas", "andrei", "anghel", "anton", "apostol", "arsenie", "barbu", 
+                "bartolomeu", "basarab", "benedict", "benjamin", "benone", "bogdan", "boris", 
+                "bujor", "calin", "camil", "cazimir", "cezar", "ciprian", "codrut", "constantin", 
+                "cornel", "cosmin", "costel", "costin", "craciun", "cristi", "cristian", 
+                "cristofor", "damian", "dan", "daniel", "david", "decebal", "denis", "dimitrie", 
+                "dionisie", "dorin", "doru", "dragos", "dumitru", "eduard", "efrem", "emil", 
+                "emilian", "eugen", "eusebiu", "fabian", "fanurie", "felix", "filip", "florian", 
+                "gabriel", "gelu", "george", "gheorghe", "ghita", "grig", "grigore", "haralambie", 
+                "horia", "iacob", "ilarie", "ilie", "ioachim", "ioan", "ion", "ionuț", "iosif", 
+                "iurie", "iustin", "laur", "laurentiu", "lazar", "leon", "liviu", "luca", 
+                "luchian", "lucian", "lucretiu", "madalin", "manole", "manuel", "marian", 
+                "marin", "martin", "matei", "mihai", "mihail", "narcis", "nectarie", "neculai", 
+                "nicolae", "nicolai", "norbert", "oscar", "paul", "pavel", "petre", "petru", 
+                "razvan", "sebastian", "sorin", "spiridon", "stefan", "stelian", "teodor", 
+                "teodosie", "toma", "valentin", "valeriu", "vasile", "vitalie", "vladimir", "zaharia"
+            ];
+            const foundWords = [];
+
+            // Check if the password contains any name from the list
+            for (let word of wordsToCheck) {
+                if (password.includes(word)) {
+                    foundWords.push(word);
+                }
+            }
+
+            // Determine password strength
+            let strength = 'Weak';
+            if (password.length >= 8) {
+                strength = 'Moderate';
+            }
+            if (password.length >= 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
+                strength = 'Strong';
+            }
+
+            // Display results with any found words listed
+            let message = `Complexitatea: ${strength}`;
+            if (foundWords.length > 0) {
+                message += ` (!Aceasta parola contine un anumit nume(nu este recomandat)!)`;
+            }
+
+            // Update the result display
+            result.textContent = message;
+            result.className = `mt-4 p-2 rounded ${strength.includes('Weak') ? 'bg-red-500' : strength.includes('Moderate') ? 'bg-yellow-500' : 'bg-green-500'} text-white`;
+        });
+    </script>
+</body>
+</html>
