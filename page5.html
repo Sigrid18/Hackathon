@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <img class="logo" src="logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul class="flex space-x-4">
+                <button class="button" onclick="window.location.href='page1.html';"><li>Testează complexitatea parolei</li></button>
+                <button class="button" onclick="window.location.href='page2.html';"><li>Test de phishing</li></button>
+                 <button class="button" onclick="window.location.href='page3.html';"><li>Deli AI</li></button>
+                <button class="button" onclick="window.location.href='page4.html';"><li>Generator de parole</li></button>
+                <button class="button" onclick="window.location.href='page5.html';"><li>CTF</li></button>
+                <button class="button" onclick="window.location.href='page6.html';"><li>Detector de phishing</li></button>
+                <h2 class="title2">Testează complexitatea parolei tale</h2>
+            </ul>
+        </nav>
+</header>
+<h1>CTF</h1>
+<input type="text" class="inputp" id="flagInput" placeholder="Enter flag here">
+<button class="button" onclick="checkFlag()">Verifică Flag-ul</button>
+
+<div class="result" id="result"></div>
+<footer>
+    <label class="flag">FLAG{Eyes_0f_4_h4wk}</label>
+</footer>
+
+<script>
+    const flags = [
+        "FLAG{ch4tted_w1th_Deli}",
+        "FLAG{im4ge_spec1al1st}",
+        "FLAG{1n5pect_f1nder}",
+        "FLAG{Eyes_0f_4_h4wk}",
+        "FLAG{pr0fession4l_f1sher}"
+    ];
+
+    function checkFlag() {
+        const inputFlag = document.getElementById("flagInput").value.trim();
+        const resultDiv = document.getElementById("result");
+        
+
+        if (flags.includes(inputFlag)) {
+            resultDiv.textContent = "Congratulations! You've cracked the flag!";
+            const index = flags.indexOf(inputFlag);
+            if (index > -1) {
+                flags.splice(index, 1);
+            }
+        } else {
+            resultDiv.textContent = "Flag not found. Try again!";
+        }
+
+        resultDiv.textContent += ` There are ${flags.length} flags left to crack.`;
+    }
+</script>
+
+</body>
+</html>

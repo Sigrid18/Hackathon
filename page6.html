@@ -14,30 +14,24 @@
 
 <body>
 
-    <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <header class="header">
-                <nav>
-                    <ul class="flex space-x-4">
-                        <button class="button" onclick="window.location.href='page1.html';"><li>Testează complexitatea parolei</li></button>
-                        <button class="button" onclick="window.location.href='page2.html';"><li>Test de phishing</li></button>
-                         <button class="button" onclick="window.location.href='page3.html';"><li>Deli AI</li></button>
-                        <button class="button" onclick="window.location.href='page4.html';"><li>Generator de parole</li></button>
-                        <button class="button" onclick="window.location.href='page5.html';"><li>CTF</li></button>
-                        <button class="button" onclick="window.location.href='page6.html';"><li>Detector de phishing</li></button>
-                        <h2 class="title2">Testează complexitatea parolei tale</h2>
-                    </ul>
-                </nav>
-        </header>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <header class="header">
+        <nav>
+            <ul class="flex space-x-4">
+                <button class="button" onclick="window.location.href='page1.html';"><li>Testează complexitatea parolei</li></button>
+                <button class="button" onclick="window.location.href='page2.html';"><li>Test de phishing</li></button>
+                 <button class="button" onclick="window.location.href='page3.html';"><li>Deli AI</li></button>
+                <button class="button" onclick="window.location.href='page4.html';"><li>Generator de parole</li></button>
+                <button class="button" onclick="window.location.href='page5.html';"><li>CTF</li></button>
+                <button class="button" onclick="window.location.href='page6.html';"><li>Detector de phishing</li></button>
+                <h2 class="title2">Testează complexitatea parolei tale</h2>
+            </ul>
+        </nav>
+</header>
     <flowise-fullchatbot></flowise-fullchatbot>
     <script type="module">
         import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
         Chatbot.initFull({
-            chatflowid: "4dbab3c5-86ba-48be-8ce0-1cebf5e1e93f",
+            chatflowid: "735bdad3-27f7-488b-916d-4186441c4364",
             apiHost: "https://flowisehackathlon2.onrender.com",
             theme: {
                 chatWindow: {
@@ -45,7 +39,7 @@
                     title: 'Deli',
                     titleAvatarSrc: 'deli.jfif',
                     showAgentMessages: true,
-                    welcomeMessage: 'Introdu o parolă și o să îți spun mai multe despre ea',
+                    welcomeMessage: 'Introdu un mesaj și o să verific dacă este real sau nu',
                     errorMessage: 'This is a custom error message',
                     backgroundColor: '#282b30',
                     backgroundImage: 'enter image path or link', 
@@ -71,8 +65,8 @@
                         backgroundColor: '#17181b',
                         textColor: ' #2eff00',
                         sendButtonColor: ' #2eff00',
-                        maxChars: 50,
-                        maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+                        maxChars: 700,
+                        maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 700 characters.',
                         autoFocus: true, 
                         sendMessageSound: true,
                         receiveMessageSound: true,

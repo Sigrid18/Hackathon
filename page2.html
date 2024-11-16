@@ -1,23 +1,23 @@
 <html lang="en">
 <head>
-    <title>Psswrdcr4ckr</title>
+    <img class="logo" src="logo.jpg">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body class="body">
     <header class="header">
-            <h1 class="title">Psswrdcr4ckr</h1>
-            <nav>
-                <ul class="flex space-x-4">
-                    <button class="button" onclick="window.location.href='page1.html';"><li>Testează complexitatea parolei</li></button>
-                    <button class="button" onclick="window.location.href='page2.html';"><li>Phising test</li></button>
-                    <button class="button" onclick="window.location.href='page3.html';"><li>Decodează cu AI</li></button>
-                    <button class="button" onclick="window.location.href='page4.html';"><li>A fost parola ta într-un leak?</li></button>
-                    <h2 class="title2">Phishing quiz</h2>
-                    <h3>Inspectează imaginile și verifică-le legitimitatea</h3>
-                </ul>
-            </nav>
-    </header>
+        <nav>
+            <ul class="flex space-x-4">
+                <button class="button" onclick="window.location.href='page1.html';"><li>Testează complexitatea parolei</li></button>
+                <button class="button" onclick="window.location.href='page2.html';"><li>Test de phishing</li></button>
+                 <button class="button" onclick="window.location.href='page3.html';"><li>Deli AI</li></button>
+                <button class="button" onclick="window.location.href='page4.html';"><li>Generator de parole</li></button>
+                <button class="button" onclick="window.location.href='page5.html';"><li>CTF</li></button>
+                <button class="button" onclick="window.location.href='page6.html';"><li>Detector de phishing</li></button>
+                <h2 class="title2">Testează complexitatea parolei tale</h2>
+            </ul>
+        </nav>
+</header>
 
     <div id="quiz">
         <div id="question-container">
@@ -30,10 +30,6 @@
             <div id="explanation" class="explanation hidden"></div>
         </div>
         </div>
-        <div id="result-container" class="hidden">
-            <button class="button" onclick="restartQuiz()">Restart Quiz</button>
-        </div>
-    </div>
 
 
     <footer class="footer">
@@ -75,24 +71,24 @@
             explanation: 'Sunt prea multe greșeli gramaticale ca să fie real...'
         },
         { 
-            image: 'images/7.png', 
-            answer: 'legit', 
-            explanation: 'Explanation for Question 7: This is a legit item because...'
-        },
-        { 
-            image: 'images/8.png', 
+            image: 'images/7.jpeg', 
             answer: 'fake', 
-            explanation: 'Explanation for Question 8: This is fake because...'
+            explanation: 'Nici nu este nevoie de explicație aici'
         },
         { 
-            image: 'images/9.png', 
+            image: 'images/8.jpeg', 
             answer: 'legit', 
-            explanation: 'Explanation for Question 9: This is a legit item because...'
+            explanation: 'Acesta este un mail real trimis de google când cineva adaugă o adresă de recovery'
         },
         { 
-            image: 'images/10.png', 
+            image: 'images/9.jpeg', 
             answer: 'fake', 
-            explanation: 'Explanation for Question 10: This is fake because...'
+            explanation: 'Această imagine este falsă'
+        },
+        { 
+            image: 'images/10.jpeg', 
+            answer: 'fake', 
+            explanation: 'Manipulare religioasă'
         }
     ];
 
@@ -129,18 +125,11 @@
         document.getElementById('quiz').innerHTML = `
             <div id="result-container">
                 <h2>Your Score: <span id="score">${score}</span>/10</h2>
-                <button onclick="restartQuiz()">Restart Quiz</button>
+                <h3>FLAG{pr0fession4l_f1sher}</h3>
             </div>
         `;
     }
 
-    function restartQuiz() {
-        currentQuestionIndex = 0;
-        score = 0;
-        showQuestion();
-    }
-
-    // Start the quiz
     showQuestion();
     </script>
 </body>
